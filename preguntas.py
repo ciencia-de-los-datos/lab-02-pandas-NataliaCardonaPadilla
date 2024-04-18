@@ -18,17 +18,13 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 def pregunta_01():
     """
     ¿Cuál es la cantidad de filas en la tabla `tbl0.tsv`?
-
     Rta/
     40
 
     """
-    filas_0 = tbl0.shape[0]
+    filas_cero = tbl0.shape[0]
 
-    return filas_0
-
-
-# print(pregunta_01())
+    return filas_cero
 
 
 def pregunta_02():
@@ -274,7 +270,6 @@ def pregunta_13():
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
     suma de tbl2._c5b por cada valor en tbl0._c1.
-
     Rta/
     _c1
     A    146
