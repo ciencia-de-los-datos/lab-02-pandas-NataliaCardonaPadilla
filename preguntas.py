@@ -18,13 +18,13 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 def pregunta_01():
     """
     ¿Cuál es la cantidad de filas en la tabla `tbl0.tsv`?
+
     Rta/
     40
 
     """
-    filas_cero = tbl0.shape[0]
-
-    return filas_cero
+    cant_filas_tbl0 = tbl0.shape[0]
+    return cant_filas_tbl0
 
 
 def pregunta_02():
@@ -32,15 +32,11 @@ def pregunta_02():
     ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
 
     Rta/
-    40
+    4
 
     """
-    columna_0 = tbl0.shape[1]
-
-    return columna_0
-
-
-# print(pregunta_02())
+    cant_column_tlb0 = tbl0.shape[1]
+    return cant_column_tlb0
 
 
 def pregunta_03():
@@ -57,11 +53,8 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    letras_c1 = tbl0["_c1"].value_counts().sort_index()
-    return letras_c1
-
-
-# print(pregunta_03())
+    cant_letra_c1 = tbl0["_c1"].value_counts().sort_index()
+    return cant_letra_c1
 
 
 def pregunta_04():
@@ -76,11 +69,8 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    promedio_0 = tbl0.groupby("_c1")["_c2"].mean()
-    return promedio_0
-
-
-# print(pregunta_04())
+    prom_c2 = tbl0.groupby("_c1")["_c2"].mean()
+    return prom_c2
 
 
 def pregunta_05():
@@ -97,11 +87,8 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    max_0 = tbl0.groupby("_c1")["_c2"].max()
-    return max_0
-
-
-# print(pregunta_05())
+    max_value = tbl0.groupby("_c1")["_c2"].max()
+    return max_value
 
 
 def pregunta_06():
@@ -113,12 +100,8 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    valores_unicos_c4_1 = tbl1["_c4"].str.upper().unique()
-    valores_unicos = sorted(valores_unicos_c4_1)
-    return valores_unicos
-
-
-# print(pregunta_06())
+    lis = sorted(tbl1["_c4"].str.upper().unique())
+    return lis
 
 
 def pregunta_07():
@@ -134,11 +117,8 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    suma_por_letra = tbl0.groupby("_c1")["_c2"].sum()
-    return suma_por_letra
-
-
-# print(pregunta_07())
+    suma_c2 = tbl0.groupby("_c1")["_c2"].sum()
+    return suma_c2
 
 
 def pregunta_08():
@@ -157,11 +137,7 @@ def pregunta_08():
 
     """
     tbl0["suma"] = tbl0["_c0"] + tbl0["_c2"]
-    tbl0.to_csv("tbl0_con_suma.tsv", sep="\t", index=False)
     return tbl0
-
-
-# print(pregunta_08())
 
 
 def pregunta_09():
@@ -181,9 +157,6 @@ def pregunta_09():
     """
     tbl0["year"] = tbl0["_c3"].apply(lambda x: x.split("-")[0])
     return tbl0
-
-
-# print(pregunta_09())
 
 
 def pregunta_10():
@@ -210,9 +183,6 @@ def pregunta_10():
     return tabla_c1
 
 
-# print(pregunta_10())
-
-
 def pregunta_11():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
@@ -235,9 +205,6 @@ def pregunta_11():
         .reset_index()
     )
     return agroup
-
-
-# print(pregunta_11())
 
 
 def pregunta_12():
@@ -263,13 +230,11 @@ def pregunta_12():
     return agroups
 
 
-# print(pregunta_12())
-
-
 def pregunta_13():
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
     suma de tbl2._c5b por cada valor en tbl0._c1.
+
     Rta/
     _c1
     A    146
@@ -284,6 +249,3 @@ def pregunta_13():
         tbl0.merge(suma_c0, left_on="_c0", right_on="_c0").groupby("_c1")["_c5b"].sum()
     )
     return suma_c1
-
-
-# print(pregunta_13())
