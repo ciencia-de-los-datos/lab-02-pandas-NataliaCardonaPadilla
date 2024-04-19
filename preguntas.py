@@ -23,8 +23,8 @@ def pregunta_01():
     40
 
     """
-    cant_filas_tbl0 = tbl0.shape[0]
-    return cant_filas_tbl0
+    filas_tbl0 = tbl0.shape[0]
+    return filas_tbl0
 
 
 def pregunta_02():
@@ -35,8 +35,8 @@ def pregunta_02():
     4
 
     """
-    cant_column_tlb0 = tbl0.shape[1]
-    return cant_column_tlb0
+    column_tlb0 = tbl0.shape[1]
+    return column_tlb0
 
 
 def pregunta_03():
@@ -69,8 +69,8 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    prom_c2 = tbl0.groupby("_c1")["_c2"].mean()
-    return prom_c2
+    promedio_c2 = tbl0.groupby("_c1")["_c2"].mean()
+    return promedio_c2
 
 
 def pregunta_05():
